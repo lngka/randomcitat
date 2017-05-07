@@ -1,7 +1,7 @@
 $(document).ready(function(){
     $("#newQuote").on("click", function(){
       $.ajax({
-        url: "http://api.forismatic.com/api/1.0/?method=getQuote&format=jsonp&lang=en&jsonp=parseQuote",
+        url: "https://api.forismatic.com/api/1.0/?method=getQuote&format=jsonp&lang=en&jsonp=parseQuote",
         dataType: 'JSONP',
         type: 'GET',
         jsonpCallback:"parseQuote"
@@ -36,6 +36,7 @@ function changeColor() {
     11:"#2E86C1",
     12:"#138D75"
   }
+  console.log("colorIndex"); // color test
   console.log(colorIndex);
   $(".quote-card").css("color", pallete[colorIndex]);
   $("body").css("background", pallete[colorIndex]);
