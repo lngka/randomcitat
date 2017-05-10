@@ -44,12 +44,12 @@ function changeColor() {
     11:"#2E86C1",
     12:"#138D75"
   }
-  // console.log("colorIndex"); // color test
-  // console.log(colorIndex);
   $(".bg").animate({
     backgroundColor: pallete[colorIndex]
   }, 1000);
   $(".quote-card").css("color", pallete[colorIndex]);
-  // $("body").css("background", pallete[colorIndex]);
+  $(".bg").animate({
+    backgroundColor: pallete[colorIndex]
+  }, 1000);
   colorIndex = (colorIndex + 1) % 13;
 }

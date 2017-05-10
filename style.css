@@ -10,8 +10,8 @@
 
 
 .fadeIn {
-  -webkit-animation-duration: 1s;
-  animation-duration: 1s;
+  -webkit-animation-duration: 2s;
+  animation-duration: 2s;
   -webkit-animation-fill-mode: both;
   animation-fill-mode: both;
   -webkit-animation-name: fadeIn;
@@ -30,11 +30,6 @@ body {
     /*background-blend-mode: color-dodge;
     background: #283747 url('http://oi65.tinypic.com/24ca887.jpg') no-repeat center center fixed;*/
     position: relative;
-    /*background: #283747;*/
-    /*-webkit-background-size: cover;
-    -moz-background-size: cover;
-    background-size: cover;
-    -o-background-size: cover;*/
     z-index: 5;
 }
 
