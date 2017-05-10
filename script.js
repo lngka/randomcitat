@@ -1,3 +1,5 @@
+
+// request quote using jsonp because Cross-Origin Resource Sharing (CORS)
 $(document).ready(function(){
     $("#newQuote").on("click", function(){
       $.ajax({
@@ -5,10 +7,11 @@ $(document).ready(function(){
         dataType: 'JSONP',
         type: 'GET',
         jsonpCallback:"parseQuote"
-      });
+      })
     })
 })
 
+// call back parseQuote() to use with jsonp
 function parseQuote(data){
   $("#content").html(JSON.stringify(data.quoteText).replace(/\"+/g, ""));
   if (data.quoteAuthor != "") {
@@ -17,6 +20,11 @@ function parseQuote(data){
     $("#cite span").html("unknown");
   }
   changeColor();
+  // simulate css animation using copy trick
+  var contentBox = $('#content');
+  var copyBox = contentBox.clone(true);
+  contentBox.before(copyBox);
+  contentBox.remove();
 }
 
 var colorIndex = 0;
@@ -36,9 +44,12 @@ function changeColor() {
     11:"#2E86C1",
     12:"#138D75"
   }
-  console.log("colorIndex"); // color test
-  console.log(colorIndex);
+  // console.log("colorIndex"); // color test
+  // console.log(colorIndex);
+  $(".bg").animate({
+    backgroundColor: pallete[colorIndex]
+  }, 1000);
   $(".quote-card").css("color", pallete[colorIndex]);
-  $("body").css("background", pallete[colorIndex]);
+  // $("body").css("background", pallete[colorIndex]);
   colorIndex = (colorIndex + 1) % 13;
 }
