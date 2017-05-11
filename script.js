@@ -1,4 +1,5 @@
 
+var globalData;
 // request quote using jsonp because Cross-Origin Resource Sharing (CORS)
 $(document).ready(function(){
     $("#newQuote").on("click", function(){
@@ -9,10 +10,15 @@ $(document).ready(function(){
         jsonpCallback:"parseQuote"
       })
     })
+
+   $("#twitter").on("click", function() {
+     window.open("https://twitter.com/intent/tweet?text=" + JSON.stringify(globalData.quoteText) + "--" + JSON.stringify(globalData.quoteAuthor).replace(/\"+/g, ""));
+   })
 })
 
 // call back parseQuote() to use with jsonp
 function parseQuote(data){
+  globalData = data;
   $("#content").html(JSON.stringify(data.quoteText).replace(/\"+/g, ""));
   if (data.quoteAuthor != "") {
     $("#cite span i").html(JSON.stringify(data.quoteAuthor).replace(/\"+/g, ""));
